@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembersTable extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,21 +14,23 @@ class CreateMembersTable extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->text('name');
+            $table->text('email');
+            $table->text('postcode');
+            $table->integer('prefecture_id');
+            $table->text('city');
+            $table->text('local');
+            $table->text('street_address')->nullable();
+            $table->text('busines_hour')->nullable();
+            $table->text('regular_holiday')->nullable();
+            $table->text('phone')->nullable();
+            $table->text('fax')->nullable();
+            $table->text('url')->nullable();
+            $table->text('license_number')->nullable();
+            $table->text('image');
 
-            $table->text('name.companies');
-            $table->text('email.companies');
-            $table->text('postcode.companies');
-            $table->int('prefecture_id.companies');
-            $table->text('city.companies');
-            $table->text('local.companies');
-            $table->text('street_address.companies')->nullable();
-            $table->text('busines_hour.companies')->nullable();
-            $table->text('regular_holiday.companies')->nullable();
-            $table->text('phone.companies')->nullable();
-            $table->text('fax.companies')->nullable();
-            $table->text('url.companies')->nullable();
-            $table->text('license_number.companies')->nullable();
-            $table->text('image.companies');
 
         });
     }
