@@ -15,7 +15,6 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->text('name');
             $table->text('email');
             $table->text('postcode');
@@ -23,14 +22,14 @@ class CreateCompaniesTable extends Migration
             $table->text('city');
             $table->text('local');
             $table->text('street_address')->nullable();
-            $table->text('busines_hour')->nullable();
+            $table->text('business_hour')->nullable();
             $table->text('regular_holiday')->nullable();
             $table->text('phone')->nullable();
             $table->text('fax')->nullable();
             $table->text('url')->nullable();
             $table->text('license_number')->nullable();
             $table->text('image');
-
+            $table->timestamps();
 
         });
     }

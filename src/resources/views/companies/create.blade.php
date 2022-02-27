@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="companies_prefecture">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="prefecture" id="companies_prefecture">
+            <input type="text" class="form-control" name="prefecture_id" id="companies_prefecture">
         </div>
         <div class="form-group">
             <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
@@ -37,8 +37,8 @@
             <input type="text" class="form-control" name="street_address" id="companies_street_address">
         </div>
         <div class="form-group">
-            <label for="companies_bussiness_hour">{{ __('Bussiness Hour') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="bussiness_hour" id="companies_bussiness_hour">
+            <label for="companies_business_hour">{{ __('Business Hour') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="business_hour" id="companies_business_hour">
         </div>
         <div class="form-group">
             <label for="companies_regular_holiday">{{ __('Regular Holiday') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
@@ -57,8 +57,8 @@
             <input type="text" class="form-control" name="url" id="companies_url">
         </div>
         <div class="form-group">
-            <label for="companies_licence_number">{{ __('Licence number') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="licence_number" id="companies_licence_number">
+            <label for="companies_license_number">{{ __('Licence number') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="license_number" id="companies_license_number">
         </div>
         <div class="form-group">
             <label for="companies_image">{{ __('Image') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>

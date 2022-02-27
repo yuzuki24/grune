@@ -14,9 +14,9 @@
     <tbody>
       @foreach ($companies as $company)
       <tr>
-        <td>{{ $comanies->companies_name }}</td>
-        <td>{{ $comanies->companies_email }}</td>
-        <td>{{ $comanies->companies_postcode }}</td>
+        <td>{{ $company->name }}</td>
+        <td>{{ $company->email }}</td>
+        <td>{{ $company->postcode }}</td>
       </tr>
       @endforeach
     </tbody>
