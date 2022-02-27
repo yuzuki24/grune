@@ -15,13 +15,8 @@ class companies extends Model
     protected $primaryKey = 'companies_id';
 
     // 登録・更新可能なカラムの指定
-    protected $fillable = [
-        'book_id',
-        'user_id',
-        'category_id',
-        'book_name',
-        'created_at',
-        'updated_at'
+    protected $guarded = [
+        "id",
     ];
 
     /**
@@ -34,9 +29,8 @@ class companies extends Model
 
     public function InsertCompanies($request)
     {
+        // dd($request->all());
         // リクエストデータを基に管理マスターユーザーに登録する
-        return $this->create([
-            'companies_name'             => $request->companies_name,
-        ]);
+        return $this->fill($request->all())->save();
     }
 }

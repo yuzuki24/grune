@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Companies</h1>
-@endsection
+
 <div class="container small">
     <h1>Companies登録</h1>
     <form action="{{ route('companies.store') }}" method="POST">
@@ -10,59 +10,59 @@
       <fieldset>
           <div class="form-group">
               <label for="companies_name">{{ __('Name') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-              <input type="text" class="form-control" name="companies_name" id="companies_name">
+              <input type="text" class="form-control" name="name" id="companies_name">
           </div>
           <div class="form-group">
             <label for="companies_email">{{ __('Email') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_email" id="companies_email">
+            <input type="text" class="form-control" name="email" id="companies_email">
         </div>
         <div class="form-group">
             <label for="companies_postcode">{{ __('Postcode') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_postcode" id="companies_postcode">
+            <input type="text" class="form-control" name="postcode" id="companies_postcode">
         </div>
         <div class="form-group">
             <label for="companies_prefecture">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_prefecture" id="companies_prefecture">
+            <input type="text" class="form-control" name="prefecture" id="companies_prefecture">
         </div>
         <div class="form-group">
             <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_city" id="companies_city">
+            <input type="text" class="form-control" name="city" id="companies_city">
         </div>
         <div class="form-group">
             <label for="companies_local">{{ __('Local') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_local" id="companies_local">
+            <input type="text" class="form-control" name="local" id="companies_local">
         </div>
         <div class="form-group">
             <label for="companies_street_address">{{ __('StreetAddress') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_street_address" id="companies_street_address">
+            <input type="text" class="form-control" name="street_address" id="companies_street_address">
         </div>
         <div class="form-group">
             <label for="companies_bussiness_hour">{{ __('Bussiness Hour') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_bussiness_hour" id="companies_bussiness_hour">
+            <input type="text" class="form-control" name="bussiness_hour" id="companies_bussiness_hour">
         </div>
         <div class="form-group">
             <label for="companies_regular_holiday">{{ __('Regular Holiday') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_regular_holiday" id="companies_regular_holiday">
+            <input type="text" class="form-control" name="regular_holiday" id="companies_regular_holiday">
         </div>
         <div class="form-group">
             <label for="companies_phone">{{ __('Phone') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_phone" id="companies_phone">
+            <input type="text" class="form-control" name="phone" id="companies_phone">
         </div>
         <div class="form-group">
             <label for="companies_fax">{{ __('Fax') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_fax" id="companies_fax">
+            <input type="text" class="form-control" name="fax" id="companies_fax">
         </div>
         <div class="form-group">
             <label for="companies_url">{{ __('Url') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_url" id="companies_url">
+            <input type="text" class="form-control" name="url" id="companies_url">
         </div>
         <div class="form-group">
             <label for="companies_licence_number">{{ __('Licence number') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_licence_number" id="companies_licence_number">
+            <input type="text" class="form-control" name="licence_number" id="companies_licence_number">
         </div>
         <div class="form-group">
             <label for="companies_image">{{ __('Image') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_image" id="companies_image">
+            <input type="text" class="form-control" name="image" id="companies_image">
         </div>
 
           <div class="d-flex justify-content-between pt-3">
@@ -79,4 +79,4 @@
 
 
 <a href="{{ route('companies.create') }}">companies</a>
-
+@endsection
