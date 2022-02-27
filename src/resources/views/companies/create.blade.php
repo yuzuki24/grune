@@ -9,44 +9,60 @@
     @csrf
       <fieldset>
           <div class="form-group">
-              <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+              <label for="companies_name">{{ __('Name') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
               <input type="text" class="form-control" name="companies_name" id="companies_name">
           </div>
           <div class="form-group">
-            <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_name" id="companies_name">
+            <label for="companies_email">{{ __('Email') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_email" id="companies_email">
         </div>
         <div class="form-group">
-            <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_name" id="companies_name">
+            <label for="companies_postcode">{{ __('Postcode') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_postcode" id="companies_postcode">
         </div>
         <div class="form-group">
-            <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_name" id="companies_name">
+            <label for="companies_prefecture">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_prefecture" id="companies_prefecture">
         </div>
         <div class="form-group">
-            <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_name" id="companies_name">
+            <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_city" id="companies_city">
         </div>
         <div class="form-group">
-            <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_name" id="companies_name">
+            <label for="companies_local">{{ __('Local') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_local" id="companies_local">
         </div>
         <div class="form-group">
-            <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_name" id="companies_name">
+            <label for="companies_street_address">{{ __('StreetAddress') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_street_address" id="companies_street_address">
         </div>
         <div class="form-group">
-            <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_name" id="companies_name">
+            <label for="companies_bussiness_hour">{{ __('Bussiness Hour') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_bussiness_hour" id="companies_bussiness_hour">
         </div>
         <div class="form-group">
-            <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_name" id="companies_name">
+            <label for="companies_regular_holiday">{{ __('Regular Holiday') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_regular_holiday" id="companies_regular_holiday">
         </div>
         <div class="form-group">
-            <label for="companies_name">{{ __('companiesの名称') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="companies_name" id="companies_name">
+            <label for="companies_phone">{{ __('Phone') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_phone" id="companies_phone">
+        </div>
+        <div class="form-group">
+            <label for="companies_fax">{{ __('Fax') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_fax" id="companies_fax">
+        </div>
+        <div class="form-group">
+            <label for="companies_url">{{ __('Url') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_url" id="companies_url">
+        </div>
+        <div class="form-group">
+            <label for="companies_licence_number">{{ __('Licence number') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_licence_number" id="companies_licence_number">
+        </div>
+        <div class="form-group">
+            <label for="companies_image">{{ __('Image') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" name="companies_image" id="companies_image">
         </div>
 
           <div class="d-flex justify-content-between pt-3">
