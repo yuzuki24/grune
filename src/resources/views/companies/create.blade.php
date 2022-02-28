@@ -24,11 +24,11 @@
             <label for="companies_prefecture">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
             <input type="text" class="form-control" name="prefecture_id" id="companies_prefecture">
             <select name="companies_id">
-                {{Form::select(
+                {{-- {{Form::select(
                  @foreach($companies as $company)
                   <option value="{{ $companies->id }}">{{ $company->name }}</option>
                 @endforeach
-                )}}
+                )}} --}}
               </select>
         </div>
         <div class="form-group">

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class companies extends Model
 {
@@ -35,9 +37,4 @@ class companies extends Model
         return $this->fill($request->all())->save();
     }
 
-    public function destroy()
-    {
-        Companies::find()->delete();
-        return;
-    }
 }
