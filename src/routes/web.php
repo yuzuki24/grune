@@ -16,10 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/companies', [CompaniesController::class, 'index'])->name('companies.index');
 Route::get('/companies/create', [CompaniesController::class, 'create'])->name('companies.create');
 
 Route::post('/companies/store', [CompaniesController::class, 'store'])->name('companies.store');
 
-Route::get('/companies/edit', 'CompaniesController@edit')->name('companies_edit');
-Route::post('/companies/edit', 'CompaniesController@update')->name('companies_update');
+Route::get('/companies/edit/{company_id}', 'CompaniesController@edit')->name('companies_edit');
+Route::post('/companies/edit/{company_id}', 'CompaniesController@update')->name('companies_update');
+
+
+
+

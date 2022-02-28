@@ -31,6 +31,8 @@ class CreateCompaniesTable extends Migration
             $table->text('image');
             $table->timestamps();
 
+            $table->softDeletes();
+
         });
     }
 

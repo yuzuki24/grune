@@ -43,7 +43,7 @@ class CompaniesController extends Controller
     /**
      * 編集
      */
-    public function edit(Request $request)
+    public function edit(Request $request,int $company_id)
 {
     $companies = Companies::find($request->id);
     return view('companies.edit', ['companies' => $companies]);
@@ -51,7 +51,7 @@ class CompaniesController extends Controller
     /**
      * 更新
      */
-    public function update(Request $request)
+    public function update(Request $request, int $company_id)
 {
     $companies = Companies::find($request->id);
     $companies->title = $request->title;

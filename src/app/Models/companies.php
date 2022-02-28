@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class companies extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $table = 'companies';
 
@@ -32,5 +33,11 @@ class companies extends Model
         // dd($request->all());
         // リクエストデータを基に管理マスターユーザーに登録する
         return $this->fill($request->all())->save();
+    }
+
+    public function destroy()
+    {
+        Companies::find()->delete();
+        return;
     }
 }
