@@ -23,6 +23,11 @@
         <div class="form-group">
             <label for="companies_prefecture">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
             <input type="text" class="form-control" name="prefecture_id" id="companies_prefecture">
+            <select name="job_id">
+                {{-- @foreach($jobs as $job)
+                  <option value="{{ $job->id }}">{{ $job->name }}</option>
+                @endforeach --}}
+              </select>
         </div>
         <div class="form-group">
             <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>

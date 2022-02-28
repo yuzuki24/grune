@@ -4,6 +4,7 @@
 <h1>Companies</h1>
 
 <table>
+    <a href="{{ route('companies_edit') }}?id={{ $companies->id }}">
     <thead>
       <tr>
         <th>Name</th>

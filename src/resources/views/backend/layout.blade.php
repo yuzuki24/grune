@@ -37,6 +37,7 @@
         @yield('css-scripts')
         <!-- backend css -->
         <link rel="stylesheet" href="{{ asset('css/backend/backend.css') }}">
+        @yield('companies_edit')
     </head>
     <body class="hold-transition skin-blue-light sidebar-mini @yield('body-class')">
         <div class="wrapper">

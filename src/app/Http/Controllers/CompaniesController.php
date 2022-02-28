@@ -18,7 +18,7 @@ class CompaniesController extends Controller
     public function index()
     {
         $companies = $this->companies->findAllCompaniess();
-
+//prefucture
         return view('companies.index', compact('companies'));
     }
 
@@ -27,6 +27,7 @@ class CompaniesController extends Controller
      */
     public function create(Request $request)
     {
+        //都道府県のmodelからデータ取得してViewに渡す（Prefecture.php)
         return view('companies.create');
     }
 
@@ -38,4 +39,24 @@ class CompaniesController extends Controller
         $registerCompanies = $this->companies->InsertCompanies($request);
         return redirect()->route('companies.index');
     }
+
+    /**
+     * 編集
+     */
+    public function edit(Request $request)
+{
+    $companies = Companies::find($request->id);
+    return view('companies.edit', ['companies' => $companies]);
+}
+    /**
+     * 更新
+     */
+    public function update(Request $request)
+{
+    $companies = Companies::find($request->id);
+    $companies->title = $request->title;
+    $companies->content = $request->content;
+    $companies->save();
+    return redirect('/companies');
+}
 }

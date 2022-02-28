@@ -20,3 +20,6 @@ Route::get('/companies', [CompaniesController::class, 'index'])->name('companies
 Route::get('/companies/create', [CompaniesController::class, 'create'])->name('companies.create');
 
 Route::post('/companies/store', [CompaniesController::class, 'store'])->name('companies.store');
+
+Route::get('/companies/edit', 'CompaniesController@edit')->name('companies_edit');
+Route::post('/companies/edit', 'CompaniesController@update')->name('companies_update');
