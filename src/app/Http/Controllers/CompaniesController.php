@@ -59,6 +59,10 @@ class CompaniesController extends Controller
     $companies->save();
     return redirect('/companies');
 }
+
+    /**　　
+     * 削除
+     */
     public function destroy()
         {
             Companies::find()->delete();

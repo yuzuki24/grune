@@ -21,11 +21,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/companies', [CompaniesController::class, 'index'])->name('companies.index');
 Route::get('/companies/create', [CompaniesController::class, 'create'])->name('companies.create');
+Route::get('/companies/layout', [CompaniesController::class, 'layout'])->name('companies.layout');
 
 Route::post('/companies/store', [CompaniesController::class, 'store'])->name('companies.store');
 
 Route::get('/companies/edit/{company_id}', 'CompaniesController@edit')->name('companies_edit');
 Route::post('/companies/edit/{company_id}', 'CompaniesController@update')->name('companies_update');
+
 
 
 
