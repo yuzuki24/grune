@@ -12,6 +12,23 @@ class companies extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'name',
+        'email',
+        'postcode',
+        'prefecture_id',
+        'city',
+        'local',
+        'street_address',
+        'business_hour',
+        'regular_holiday',
+        'phone',
+        'fax',
+        'url',
+        'license_number',
+        'image',
+    ];
+
     protected $table = 'companies';
 
     // テーブルに関連付ける主キー
@@ -23,7 +40,7 @@ class companies extends Model
     ];
 
     /**
-     * 一覧画面表示用にbooksテーブルから全てのデータを取得
+     * 一覧画面表示用にcompaniesテーブルから全てのデータを取得
      */
     public function findAllCompaniess()
     {
@@ -36,5 +53,6 @@ class companies extends Model
         // リクエストデータを基に管理マスターユーザーに登録する
         return $this->fill($request->all())->save();
     }
+
 
 }

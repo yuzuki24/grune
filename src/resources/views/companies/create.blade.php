@@ -6,6 +6,7 @@
 <div class="container small">
     <h1>Companies登録</h1>
     <form action="{{ route('companies.store') }}" method="POST">
+        <a href="{{ route('companies.index') }}">{{ __('一覧へ戻る') }}</a>
     @csrf
       <fieldset>
           <div class="form-group">
@@ -23,12 +24,8 @@
         <div class="form-group">
             <label for="companies_prefecture">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
             <input type="text" class="form-control" name="prefecture_id" id="companies_prefecture">
-            <select name="companies_id">
-                {{-- {{Form::select(
-                 @foreach($companies as $company)
-                  <option value="{{ $companies->id }}">{{ $company->name }}</option>
-                @endforeach
-                )}} --}}
+            <select name="prefectures_id">
+                {{Form::select('prefecture', $prefectures ?? ''->toArray());}}
               </select>
         </div>
         <div class="form-group">
