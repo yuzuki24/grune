@@ -11,12 +11,12 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Prefecture
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $display_name
  * @property int $area_id
- * 
+ *
  * @property \App\Models\Area $area
  * @property \Illuminate\Database\Eloquent\Collection $companies
  *

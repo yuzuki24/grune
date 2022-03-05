@@ -20,8 +20,12 @@ class CompaniesController extends Controller
     public function index()
     {
         $companies = $this->companies->findAllCompaniess();
-//prefucture
-        return view('companies.index', compact('companies'));
+        $prefectures_collection = $this->prefecture->select('id', 'display_name')->get();
+        $prefectures = $prefectures_collection->mapWithkeys(function ($prefecture) {
+            return [$prefecture['id'] => $prefecture['display_name']];
+        });
+
+        return view('companies.index', compact('companies', 'prefectures'));
     }
 
     /**
@@ -29,7 +33,10 @@ class CompaniesController extends Controller
      */
     public function create(Request $request)
     {
-        $prefectures = $this->prefecture->select('id','name')->get()->toArray();
+        $prefectures_collection = $this->prefecture->select('id', 'display_name')->get();
+        $prefectures = $prefectures_collection->mapWithkeys(function ($prefecture) {
+        return [$prefecture['id'] => $prefecture['display_name']];
+        });
         //都道府県のmodelからデータ取得してViewに渡す（Prefecture.php)
         return view('companies.create', compact('prefectures'));
     }
@@ -55,10 +62,10 @@ class CompaniesController extends Controller
     /**
      * 編集
      */
-    public function edit(Request $request,int $company_id)
+    public function edit(Request $request, int $company_id)
     {
-        $companies = Companies::find($request->id);
-        return view('companies.edit', ['companies' => $companies]);
+        $company = Companies::find($company->id);
+        return view('companies.edit', compact('company'));
     }
     /**
      * 更新
@@ -75,9 +82,9 @@ class CompaniesController extends Controller
     /**
      * 削除
      */
-    public function destroy()
+    public function destroy(Request $request)
     {
-        Companies::find()->delete();
+        Companies::destroy($request->id);
         return;
     }
 }

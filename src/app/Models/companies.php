@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 
 class companies extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+
 
     protected $fillable = [
         'name',
@@ -31,13 +31,9 @@ class companies extends Model
 
     protected $table = 'companies';
 
-    // テーブルに関連付ける主キー
-    protected $primaryKey = 'companies_id';
 
     // 登録・更新可能なカラムの指定
-    protected $guarded = [
-        "id",
-    ];
+
 
     /**
      * 一覧画面表示用にcompaniesテーブルから全てのデータを取得

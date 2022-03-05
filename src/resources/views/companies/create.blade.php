@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Companies</h1>
 
 <div class="container small">
-    <h1>Companies登録</h1>
+    <h1>企業登録</h1>
     <form action="{{ route('companies.store') }}" method="POST">
-        <a href="{{ route('companies.index') }}">{{ __('一覧へ戻る') }}</a>
     @csrf
       <fieldset>
           <div class="form-group">
@@ -22,11 +20,8 @@
             <input type="text" class="form-control" name="postcode" id="companies_postcode">
         </div>
         <div class="form-group">
-            <label for="companies_prefecture">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="prefecture_id" id="companies_prefecture">
-            <select name="prefectures_id">
-                {{Form::select('prefecture', $prefectures ?? ''->toArray());}}
-              </select>
+            {{ Form::select('prefecture', $prefectures, null, ['name' => 'prefecture_id']) }}
+
         </div>
         <div class="form-group">
             <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
@@ -68,19 +63,16 @@
             <label for="companies_image">{{ __('Image') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
             <input type="text" class="form-control" name="image" id="companies_image">
         </div>
-
-          <div class="d-flex justify-content-between pt-3">
-              <a href="{{ route('companies.index') }}" class="btn btn-outline-secondary" role="button">
-                  <i class="fa fa-reply mr-1" aria-hidden="true"></i>{{ __('一覧画面へ') }}
-              </a>
-              <button type="submit" class="btn btn-success">
-                  {{ __('登録') }}
-              </button>
-          </div>
-      </fieldset>
+        <div style="display: flex; justify-content: space-between;">
+            <a href="{{ route('companies.index') }}" class="btn btn-outline-secondary" role="button">
+                <i class="fa fa-reply mr-1" aria-hidden="true"></i>{{ __('企業一覧へ戻る') }}
+            </a>
+            <button type="submit" class="btn btn-success">
+                {{ __('登録') }}
+            </button>
+        </div>
+    </fieldset>
     </form>
-  </div>
+</div>
 
-
-<a href="{{ route('companies.create') }}">companies</a>
 @endsection
