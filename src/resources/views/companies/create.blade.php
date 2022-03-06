@@ -22,10 +22,8 @@
                 <button type="button" @click="onClick">郵便番号検索</button>
             </div>
             <div class="form-group">
-                {{-- Form::select('prefecture', $prefectures, null, ['v-model' => 'prefecture_id']) --}}
-                <select v-model="prefecture_id" v-on:change="selectIndex">
-                    <option v-for="prefecture in prefectures" v-bind:value="prefecture.id">{{prefecture.name}}</option>
-                </select>
+                {{ Form::select('prefecture', $prefectures, null, ['v-model' => 'prefecture_id']) }}
+
             </div>
             <div class="form-group">
                 <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
@@ -38,7 +36,7 @@
         </div>
         <div class="form-group">
             <label for="companies_street_address">{{ __('StreetAddress') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" v-model="street_address" id="companies_street_address">
+            <input type="text" class="form-control" name="street_address" id="companies_street_address">
         </div>
 
         <div class="form-group">
@@ -86,7 +84,6 @@
     new Vue({
         el: '#app',
         data: {
-            prefectures: {{json_encode(prefectures)}},
             postcode: '',
             prefecture_id: '',
             city: '',
@@ -102,7 +99,7 @@
                 console.log(url)
                 axios.get(url).then((response) => {
 
-                    this.prefecture_id = response.data.prefecture;
+                    this.prefecture_id = response.data.prefecture_id;
                     this.city = response.data.city;
                     this.local = response.data.local;
 
