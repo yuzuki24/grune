@@ -48,14 +48,29 @@ class CompaniesController extends Controller
     {
         $registerCompanies = $this->companies->InsertCompanies($request);
         return redirect()->route('companies.index');
+
+
+        /**画像アップロード */
+        $this->validate($request, Member::$rules);
+
+        if ($file = $request->profile_img) {
+            $fileName = time() . $file->getClientOriginalName();
+            $target_path = public_path('uploads/');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = "";
+        }
+
+        $img->profile_img = $fileName;
+        $img->save();
+
+        return redirect()->route('admin.members');
     }
 
-    /**
-     * 詳細
-     */
-    public function show($id)
+    public function first()
     {
-        //
+        $imgs = Img::orderBy('created_at', 'desc')->where('year', '1')->get();
+        return view('admin.imgs.first', ['imgs' => $imgs]);
     }
 
 
@@ -87,4 +102,7 @@ class CompaniesController extends Controller
         Companies::destroy($company_id);
         return redirect('/companies');
     }
+
+
+
 }

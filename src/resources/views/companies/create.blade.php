@@ -65,7 +65,15 @@
         </div>
         <div class="form-group">
             <label for="companies_image">{{ __('Image') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="image" id="companies_image">
+            <form action="{{ route('first') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="profile_img" id="companies_image">
+                {{-- @if($user->image == null)
+                <img src="/src/public/img/no-image/no-image.jpg">
+                @else
+                <img src="/storage/{{$user->image}}">
+                @endif --}}
+            </form>
         </div>
         <div style="display: flex; justify-content: space-between;">
             <a href="{{ route('companies.index') }}" class="btn btn-outline-secondary" role="button">
@@ -78,38 +86,7 @@
     </fieldset>
     </form>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-<script>
-    new Vue({
-        el: '#app',
-        data: {
-            postcode: '',
-            prefecture_id: '',
-            city: '',
-            local: '',
-        },
-        methods: {
-            onClick: function() {
-                console.log('クリックしました')
-                const url = '/Backend/postal_search?'+ [
-                    'postcode='+ this.postcode,
 
-                ].join('&');
-                console.log(url)
-                axios.get(url).then((response) => {
-
-                    this.prefecture_id = response.data.prefecture_id;
-                    this.city = response.data.city;
-                    this.local = response.data.local;
-
-                });
-
-            }
-        }
-    });
-
-</script>
 
 
 @endsection

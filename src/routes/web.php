@@ -33,11 +33,10 @@ Route::get('/companies/edit/{company_id}', [CompaniesController::class, 'edit'])
 Route::post('/companies/edit/{company_id}', [CompaniesController::class, 'update'])->name('companies.update');
 Route::delete('/companies/destroy/{company_id}', [CompaniesController::class, 'destroy'])->name('companies.destroy');
 
+//住所自動入力//
 Route::get('postal_code', 'HomeController@postal_code');
 Route::get('/Backend/postal_search', [PostalCodeController::class, 'search'])->name('postalcode.search');
 
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//画像//
+Route::get('imgs/first', 'ImgsController@first')->name('first');
+Route::resource('imgs', 'ImgsController', ['only' => ['create', 'store', 'destroy']]);

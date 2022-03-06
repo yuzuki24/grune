@@ -5318,7 +5318,27 @@ Vue.component('example-component', (__webpack_require__(/*! ./components/Example
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    postcode: '',
+    prefecture_id: '',
+    city: '',
+    local: ''
+  },
+  methods: {
+    onClick: function onClick() {
+      var _this = this;
+
+      console.log('クリックしました');
+      var url = '/Backend/postal_search?' + ['postcode=' + this.postcode].join('&');
+      console.log(url);
+      axios.get(url).then(function (response) {
+        _this.prefecture_id = response.data.prefecture_id;
+        _this.city = response.data.city;
+        _this.local = response.data.local;
+      });
+    }
+  }
 });
 
 /***/ }),
