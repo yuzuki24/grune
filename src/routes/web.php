@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\Backend\PostalCodeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,7 @@ Route::get('/companies/edit/{company_id}', [CompaniesController::class, 'edit'])
 Route::post('/companies/edit/{company_id}', [CompaniesController::class, 'update'])->name('companies.update');
 Route::delete('/companies/destroy/{company_id}', [CompaniesController::class, 'destroy'])->name('companies.destroy');
 
-
+Route::get('postal_code', 'HomeController@postal_code');
+Route::get('/Backend/postal_search', [PostalCodeController::class, 'search'])->name('postalcode.search');
 
 
