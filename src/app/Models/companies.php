@@ -51,13 +51,6 @@ class companies extends Model
     }
 
 
-    // Scope
-    public function scopeWhereSearch($query, $first_code, $last_code) {
-
-        $query->where('first_code', intval($first_code))
-              ->where('last_code', $last_code);
-
-    }
 
 
 }

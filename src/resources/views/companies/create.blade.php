@@ -22,7 +22,10 @@
                 <button type="button" @click="onClick">郵便番号検索</button>
             </div>
             <div class="form-group">
-                {{ Form::select('prefecture', $prefectures, null, ['v-model' => 'prefecture_id']) }}
+                {{-- Form::select('prefecture', $prefectures, null, ['v-model' => 'prefecture_id']) --}}
+                <select v-model="prefecture_id" v-on:change="selectIndex">
+                    <option v-for="prefecture in prefectures" v-bind:value="prefecture.id">{{prefecture.name}}</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
@@ -32,11 +35,12 @@
                 <label for="companies_local">{{ __('Local') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
                 <input type="text" class="form-control" v-model="local" id="companies_local">
             </div>
-            <div class="form-group">
-                <label for="companies_street_address">{{ __('StreetAddress') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-                <input type="text" class="form-control" v-model="street_address" id="companies_street_address">
-            </div>
         </div>
+        <div class="form-group">
+            <label for="companies_street_address">{{ __('StreetAddress') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <input type="text" class="form-control" v-model="street_address" id="companies_street_address">
+        </div>
+
         <div class="form-group">
             <label for="companies_business_hour">{{ __('Business Hour') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
             <input type="text" class="form-control" name="business_hour" id="companies_business_hour">
@@ -82,25 +86,25 @@
     new Vue({
         el: '#app',
         data: {
+            prefectures: {{json_encode(prefectures)}},
             postcode: '',
             prefecture_id: '',
             city: '',
             local: '',
-            street_address: ''
         },
         methods: {
             onClick: function() {
                 console.log('クリックしました')
-                const url = '/ajax/Backend/postal_search?'+ [
+                const url = '/Backend/postal_search?'+ [
                     'postcode='+ this.postcode,
 
                 ].join('&');
                 console.log(url)
                 axios.get(url).then((response) => {
 
-                    this.prefecture = response.data.prefecture;
+                    this.prefecture_id = response.data.prefecture;
                     this.city = response.data.city;
-                    this.address = response.data.address;
+                    this.local = response.data.local;
 
                 });
 
