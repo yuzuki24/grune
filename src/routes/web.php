@@ -37,3 +37,7 @@ Route::get('postal_code', 'HomeController@postal_code');
 Route::get('/Backend/postal_search', [PostalCodeController::class, 'search'])->name('postalcode.search');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
