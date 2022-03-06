@@ -82,9 +82,9 @@ class CompaniesController extends Controller
     /**
      * 削除
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, int $company_id)
     {
-        Companies::destroy($request->id);
-        return;
+        Companies::destroy($company_id);
+        return redirect('/companies');
     }
 }
