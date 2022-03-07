@@ -61,7 +61,7 @@ class CompaniesController extends Controller
             $fileName = "";
         }
 
-        $img->profile_img = $fileName;
+        $img->image = $fileName;
         $img->save();
 
         return redirect()->route('admin.members');

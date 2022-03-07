@@ -27,6 +27,7 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Google Font -->
         <link rel="stylesheet"
@@ -34,6 +35,7 @@
         <!-- Favicon Link
         <link rel="icon" type="image/png" href="">
         -->
+        <link href="https://unpkg.com/tabulator-tables@4.1.4/dist/css/tabulator.min.css" rel="stylesheet">
         @yield('css-scripts')
         <!-- backend css -->
         <link rel="stylesheet" href="{{ asset('css/backend/backend.css') }}">
@@ -45,7 +47,7 @@
             <header class="main-header">
 
                 <!-- Logo -->
-                <a href="{{ route('admin') }}" class="logo">
+                <a href="{{ route('companies.create') }}" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini">BR</span>
                     <!-- logo for regular state and mobile devices -->
@@ -88,7 +90,7 @@
                             <img src="{{ asset('img/ic_profile.png') }}" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            <p>{{ Auth::user()->username }}</p>
+                            <p>{{ Auth::user()->name }}</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
@@ -103,8 +105,8 @@
                                 <span>Users</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="edit-users"><a href="{{ route('admin.add') }}"><i class="fa fa-circle-o"></i> Add / Edit</a></li>
-                                <li class="list-users"><a href="{{ route('admin') }}"><i class="fa fa-circle-o"></i> List</a></li>
+                                <li class="edit-users"><a href=""><i class="fa fa-circle-o"></i> Add / Edit</a></li>
+                                <li class="list-users"><a href=""><i class="fa fa-circle-o"></i> List</a></li>
                             </ul>
                         </li>
 
@@ -114,8 +116,8 @@
                                 <span>Companies</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="add-companies"><a href="#"><i class="fa fa-circle-o"></i> Add / Edit</a></li>
-                                <li class="list-companies"><a href="#"><i class="fa fa-circle-o"></i> List</a></li>
+                                <li class="add-companies"><a href="{{ route('companies.create') }}"><i class="fa fa-circle-o"></i> Add / Edit</a></li>
+                                <li class="list-companies"><a href="{{ route('companies.index') }}"><i class="fa fa-circle-o"></i> List</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -129,6 +131,7 @@
             </div>
             <!-- /.content-wrapper -->
 
+
             <footer class="main-footer">
                 <div class="version hidden-xs">
                     <b>Version</b> 1.0.0
@@ -137,6 +140,7 @@
 
         </div>
         <!-- ./wrapper -->
+
 
         <!-- jQuery 3 -->
         <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
@@ -154,6 +158,7 @@
 
         <script src="{{ asset('js/backend/backend.js') }}"></script>
         <script type="text/javascript"> var rootUrl = "{{ url('/') }}";</script>
+        <link href = "https://unpkg.com/tabulator-tables@5.1.4/dist/css/tabulator.min.css" rel = "stylesheet" > <script type = "text / javascript" src = "https ://unpkg.com/tabulator-tables@5.1.4/dist/js/tabulator.min.js " > </ script>
         @yield('js-scripts')
     </body>
 </html>
