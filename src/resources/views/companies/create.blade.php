@@ -3,35 +3,35 @@
 @section('content')
 
 <div class="container small">
-    <h1>企業登録</h1>
+    <h1>Company Add Page</h1>
     <form action="{{ route('companies.store') }}" method="POST">
     @csrf
       <fieldset>
           <div class="form-group">
-              <label for="companies_name">{{ __('Name') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+              <label for="companies_name">{{ __('Name') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
               <input type="text" class="form-control" name="name" id="companies_name">
           </div>
           <div class="form-group">
-            <label for="companies_email">{{ __('Email') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <label for="companies_email">{{ __('Email') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
             <input type="text" class="form-control" name="email" id="companies_email">
         </div>
         <div id="app">
             <div class="form-group">
-                <label for="companies_postcode">{{ __('Postcode') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+                <label for="companies_postcode">{{ __('Postcode') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
                 <input type="text" class="form-control" name='postcode' v-model="postcode" id="companies_postcode">
-                <button type="button" @click="onClick">郵便番号検索</button>
+                <button type="button" @click="onClick">Search</button>
             </div>
             <div class="form-group">
-                <span class="badge badge-danger ml-2">{{ __('必須') }}</span>
+                <span class="badge badge-danger ml-2">{{ __('Required') }}</span>
                 {{ Form::select('prefecture', $prefectures, null, ['v-model' => 'prefecture_id', 'name'=>'prefecture_id']) }}
 
             </div>
             <div class="form-group">
-                <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+                <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
                 <input type="text" class="form-control" name="city" v-model="city" id="companies_city">
             </div>
             <div class="form-group">
-                <label for="companies_local">{{ __('Local') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+                <label for="companies_local">{{ __('Local') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
                 <input type="text" class="form-control" name="local" v-model="local" id="companies_local">
             </div>
         </div>
@@ -65,7 +65,7 @@
             <input type="text" class="form-control" name="license_number" id="companies_license_number">
         </div>
         <div class="form-group">
-            <label for="companies_image">{{ __('Image') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
+            <label for="companies_image">{{ __('Image') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
             <form action="{{ route('first') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="file" name="image" id="companies_image">
@@ -81,7 +81,7 @@
                 <i class="fa fa-reply mr-1" aria-hidden="true"></i>{{ __('企業一覧へ戻る') }}
             </a>
             <button type="submit" class="btn btn-success">
-                {{ __('登録') }}
+                {{ __('Submit') }}
             </button>
         </div>
     </fieldset>

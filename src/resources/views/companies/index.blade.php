@@ -29,11 +29,11 @@
                         <td style="padding: 5px;">{{ $company->city.$company->local.$company->street_address }}</td>
                         <td style="padding: 5px;">{{ $company->updated_at->format('Y/m/d') }}</td>
                         <td style="padding: 5px;">
-                            <a href="{{ route('companies.edit', $company->id) }}">編集</a>
+                            <a href="{{ route('companies.edit', $company->id) }}">Edit</a>
                             <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button type='submit'>削除</button>
+                                <button type='submit'>Delete</button>
                             </form>
                         </td>
 
