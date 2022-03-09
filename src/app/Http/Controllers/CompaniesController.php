@@ -35,7 +35,7 @@ class CompaniesController extends Controller
     {
         $prefectures_collection = $this->prefecture->select('id', 'display_name')->get();
         $prefectures = $prefectures_collection->mapWithkeys(function ($prefecture) {
-        return [$prefecture['id'] => $prefecture['display_name']];
+            return [$prefecture['id'] => $prefecture['display_name']];
         });
         //都道府県のmodelからデータ取得してViewに渡す（Prefecture.php)
         return view('companies.create', compact('prefectures'));
@@ -79,17 +79,20 @@ class CompaniesController extends Controller
      */
     public function edit(Request $request, int $company_id)
     {
-        $company = Companies::find($company->id);
-        return view('companies.edit', compact('company'));
+        $company = Companies::find($company_id);
+        $prefectures_collection = $this->prefecture->select('id', 'display_name')->get();
+        $prefectures = $prefectures_collection->mapWithkeys(function ($prefecture) {
+            return [$prefecture['id'] => $prefecture['display_name']];
+        });
+        return view('companies.edit', compact('company', 'company_id', 'prefectures'));
+
     }
     /**
      * 更新
      */
     public function update(Request $request, int $company_id)
     {
-        $companies = Companies::find($request->id);
-        $companies->title = $request->title;
-        $companies->content = $request->content;
+        $companies = Companies::find($company_id);
         $companies->save();
         return redirect('/companies');
     }

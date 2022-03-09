@@ -22,7 +22,7 @@
                 <button type="button" @click="onClick">Search</button>
             </div>
             <div class="form-group">
-                <span class="badge badge-danger ml-2">{{ __('Required') }}</span>
+                <label for="companies_postcode">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span>
                 {{ Form::select('prefecture', $prefectures, null, ['v-model' => 'prefecture_id', 'name'=>'prefecture_id']) }}
 
             </div>

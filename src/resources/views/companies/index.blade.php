@@ -43,7 +43,7 @@
         </table>
     </div>
 </div>
-<script>
+{{-- <script>
     //custom max min header filter
 var minMaxFilterEditor = function(cell, onRendered, success, cancel, editorParams){
 
@@ -136,6 +136,6 @@ columns:[
     {title:"Action", field:"car", hozAlign:"center", formatter:"tickCross",  headerFilter:"tickCross",  headerFilterParams:{"tristate":true},headerFilterEmptyCheck:function(value){return value === null}},
 ],
 });
-</script>
+</script> --}}
 <div id = "example-table"></div>
 @endsection
