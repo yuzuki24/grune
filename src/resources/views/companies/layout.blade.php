@@ -6,6 +6,12 @@
         <title>@yield('title')</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+        <!--jquery -->
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
         <!-- Font Awesome -->
@@ -29,13 +35,18 @@
         <![endif]-->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
+        <!--tabulater-->
+        <link href="https://unpkg.com/tabulator-tables@5.1.6/dist/css/tabulator.min.css" rel="stylesheet">
+        <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.1.6/dist/js/tabulator.min.js"></script>
+        <link href="dist/css/tabulator.min.css" rel="stylesheet">
+        <script type="text/javascript" src="dist/js/tabulator.min.js"></script>
+
         <!-- Google Font -->
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <!-- Favicon Link
         <link rel="icon" type="image/png" href="">
         -->
-        <link href="https://unpkg.com/tabulator-tables@4.1.4/dist/css/tabulator.min.css" rel="stylesheet">
         @yield('css-scripts')
         <!-- backend css -->
         <link rel="stylesheet" href="{{ asset('css/backend/backend.css') }}">
@@ -158,7 +169,9 @@
 
         <script src="{{ asset('js/backend/backend.js') }}"></script>
         <script type="text/javascript"> var rootUrl = "{{ url('/') }}";</script>
-        <link href = "https://unpkg.com/tabulator-tables@5.1.4/dist/css/tabulator.min.css" rel = "stylesheet" > <script type = "text / javascript" src = "https ://unpkg.com/tabulator-tables@5.1.4/dist/js/tabulator.min.js " > </ script>
+        <!--tabulater-->
+
+
         @yield('js-scripts')
     </body>
 </html>
