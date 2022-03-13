@@ -8,30 +8,30 @@
     @csrf
       <fieldset>
           <div class="form-group">
-              <label for="companies_name">{{ __('Name') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
+              <label for="companies_name">{{ __('Name') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
               <input type="text" class="form-control" name="name" id="companies_name">
           </div>
           <div class="form-group">
-            <label for="companies_email">{{ __('Email') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
+            <label for="companies_email">{{ __('Email') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
             <input type="text" class="form-control" name="email" id="companies_email">
         </div>
         <div id="app">
             <div class="form-group">
-                <label for="companies_postcode">{{ __('Postcode') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
-                <input type="text" class="form-control" name='postcode' v-model="postcode" id="companies_postcode">
+                <label for="companies_postcode">{{ __('Postcode') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
+                <input type="text" class="form-control" name='postcode' v-model="postcode" id="companies_postcode" width="50px">
                 <button type="button" class="btn btn-primary btn-lg" @click="onClick">Search</button>
             </div>
             <div class="form-group">
-                <label for="companies_postcode">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span>
+                <label for="companies_postcode">{{ __('Prefecture') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span>
                 {{ Form::select('prefecture', $prefectures, null, ['v-model' => 'prefecture_id', 'name'=>'prefecture_id']) }}
 
             </div>
             <div class="form-group">
-                <label for="companies_city">{{ __('City') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
+                <label for="companies_city">{{ __('City') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
                 <input type="text" class="form-control" name="city" v-model="city" id="companies_city">
             </div>
             <div class="form-group">
-                <label for="companies_local">{{ __('Local') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
+                <label for="companies_local">{{ __('Local') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
                 <input type="text" class="form-control" name="local" v-model="local" id="companies_local">
             </div>
         </div>
@@ -65,15 +65,9 @@
             <input type="text" class="form-control" name="license_number" id="companies_license_number">
         </div>
         <div class="form-group">
-            <label for="companies_image">{{ __('Image') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
+            <label for="companies_image">{{ __('Image') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
             <form action="{{ route('first') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="file" name="image" id="companies_image">
-                {{-- @if($user->image == null)
-                <img src="/src/public/img/no-image/no-image.jpg">
-                @else
-                <img src="/storage/{{$user->image}}">
-                @endif --}}
+
             </form>
         </div>
         <div style="display: flex; justify-content: space-between;">

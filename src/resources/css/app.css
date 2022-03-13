@@ -1,0 +1,12 @@
+label {
+    display: inline-block;
+    text-align: right;
+    width: 150px;
+}
+
+form tr th {
+    width: 150px;
+    float: left;
+    clear: both;
+    margin-right: 30px;
+}

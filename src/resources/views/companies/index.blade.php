@@ -28,9 +28,7 @@
                     <tbody>
                         @foreach ($companies as $company)
                             <tr>
-                                <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
+
                                 <td style="padding: 5px;">{{ $company->id }}</td>
                                 <td style="padding: 5px;">{{ $company->name }}</td>
                                 <td style="padding: 5px;">{{ $company->email }}</td>
@@ -40,23 +38,37 @@
                                 <td style="padding: 5px;">{{ $company->updated_at->format('Y/m/d') }}</td>
                                 <td style="padding: 5px;">
                                     <a href="{{ route('companies.edit', $company->id) }}">Edit</a>
+                                    <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type='submit'>Delete</button>
+                                    </form>
 
                                 </td>
 
-                                </form>
+
                             </tr>
 
                         @endforeach
                     </tbody>
                 </table>
-
+                @foreach ($companies as $company)
                 <script type="text/javascript">
-                    //custom max min header filter
-                    var table = new Tabulator("#example-table", {
+                    let tableData = [id:"", name:"", email:"", postcode:"", prefecture:"", street_address:"", updated_at:"", action:""];
 
+                    tableData.forEach(function(element){
+                    console.log(element);
+                    });
+
+
+                    //custom max min header filter
+                    var tableData = new Tabulator("#example-table", {
+
+                        data:tableData,
                         height:"311px",
                         layout:"fitColumns",
 
+    ]
                         columns:[
                             {title:"Id", field:"id", width:50, headerFilter:"input"},
                             {title:"Name", field:"name", width:100, headerFilter:"input", sorter:"string"},
@@ -65,12 +77,13 @@
                             {title:"Prefecture", field:"prefecture",width:100, headerFilter:"select"},
                             {title:"Address", field:"street_address", width:150, headerFilter:"input"},
                             {title:"Updated At", field:"updated_at", width:90, hozAlign:"center", sorter:"date",  headerFilter:"input"},
-                            {title: "Action",formatter: "editBTN",cellClick: "editCB" ,headerSort: false ,formatter: "<button type='submit'>Delete</button>"}
+                            {title: "Action", field:"action"},
 
-                            ]
+                            ],
 
                     });
                 </script>
+                @endforeach
             </div>
         </div>
     </div>
