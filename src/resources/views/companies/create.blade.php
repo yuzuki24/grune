@@ -67,7 +67,13 @@
         <div class="form-group">
             <label for="companies_image">{{ __('Image') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
             <form action="{{ route('first') }}" method="POST" enctype="multipart/form-data">
-
+                @csrf
+                <input type="file" name="image" id="companies_image">
+                {{-- @if($user->image == null)
+                <img src="/src/public/img/no-image/no-image.jpg">
+                @else
+                <img src="/storage/{{$user->image}}">
+                @endif --}}
             </form>
         </div>
         <div style="display: flex; justify-content: space-between;">

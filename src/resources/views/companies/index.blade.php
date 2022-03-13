@@ -28,7 +28,10 @@
                     <tbody>
                         @foreach ($companies as $company)
                             <tr>
-
+                                <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <!--<button type='submit'>Delete</button>-->
                                 <td style="padding: 5px;">{{ $company->id }}</td>
                                 <td style="padding: 5px;">{{ $company->name }}</td>
                                 <td style="padding: 5px;">{{ $company->email }}</td>
@@ -38,15 +41,11 @@
                                 <td style="padding: 5px;">{{ $company->updated_at->format('Y/m/d') }}</td>
                                 <td style="padding: 5px;">
                                     <a href="{{ route('companies.edit', $company->id) }}">Edit</a>
-                                    <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type='submit'>Delete</button>
-                                    </form>
+
 
                                 </td>
 
-
+                                </form>
                             </tr>
 
                         @endforeach
@@ -54,7 +53,7 @@
                 </table>
                 @foreach ($companies as $company)
                 <script type="text/javascript">
-                    let tableData = [id:"", name:"", email:"", postcode:"", prefecture:"", street_address:"", updated_at:"", action:""];
+                    let tableData = [id:"{{ $company->id }}", name:"{{ $company->name }}", email:"{{ $company->email }}", postcode:"{{ $company->postcode }}", prefecture:"{{ $prefectures[$company->prefecture_id] }}", street_address:"{{ $company->city.$company->local.$company->street_address }}", updated_at:"{{ $company->updated_at->format('Y/m/d') }}", action:"<a href="{{ route('companies.edit', $company->id) }}">Edit</a>"];
 
                     tableData.forEach(function(element){
                     console.log(element);
@@ -81,7 +80,9 @@
 
                             ],
 
+
                     });
+
                 </script>
                 @endforeach
             </div>
