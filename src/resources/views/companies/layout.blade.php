@@ -12,6 +12,8 @@
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous"></script>
+        <!--bootstrap-->
+
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
         <!-- Font Awesome -->
@@ -157,6 +159,7 @@
         <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('bower_components/jquery-cookie/jquery.cookie.min.js') }}"></script>
         <!-- Bootstrap 3.3.7 -->
+        <script src="/assets/libs/angular-ui-bootstrap/ui-bootstrap-tpls-1.3.0.min.js" type="text/javascript"></script>
         <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <!-- FastClick -->
         <script src="{{ asset('bower_components/fastclick/lib/fastclick.js') }}"></script>
@@ -166,6 +169,7 @@
         <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
         <!-- ChartJS -->
         <script src="{{ asset('bower_components/chart.js/Chart.js') }}"></script>
+
 
         <script src="{{ asset('js/backend/backend.js') }}"></script>
         <script type="text/javascript"> var rootUrl = "{{ url('/') }}";</script>

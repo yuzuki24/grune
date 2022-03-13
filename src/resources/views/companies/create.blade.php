@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label for="companies_postcode">{{ __('Postcode') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span></label>
                 <input type="text" class="form-control" name='postcode' v-model="postcode" id="companies_postcode">
-                <button type="button" @click="onClick">Search</button>
+                <button type="button" class="btn btn-primary btn-lg" @click="onClick">Search</button>
             </div>
             <div class="form-group">
                 <label for="companies_postcode">{{ __('Prefecture') }}<span class="badge badge-danger ml-2">{{ __('Required') }}</span>

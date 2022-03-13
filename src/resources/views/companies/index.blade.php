@@ -8,7 +8,8 @@
     <div style="display:flex; justify-content:center;">
         <div style="width:1080px;">
             <div style="display:flex; justify-content:end;">
-                <a href="{{ route('companies.create') }}">{{ __('新規作成') }}</a>
+                <a href="{{ route('companies.create') }}" class="btn btn-primary btn-lg">{{ __('Add Page') }}</a>
+
             </div>
             <div >
                 <table id = "example-table" style="width:1080px">
@@ -27,6 +28,9 @@
                     <tbody>
                         @foreach ($companies as $company)
                             <tr>
+                                <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
                                 <td style="padding: 5px;">{{ $company->id }}</td>
                                 <td style="padding: 5px;">{{ $company->name }}</td>
                                 <td style="padding: 5px;">{{ $company->email }}</td>
@@ -36,28 +40,22 @@
                                 <td style="padding: 5px;">{{ $company->updated_at->format('Y/m/d') }}</td>
                                 <td style="padding: 5px;">
                                     <a href="{{ route('companies.edit', $company->id) }}">Edit</a>
-                                    <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type='submit'>Delete</button>
-                                    </form>
+
                                 </td>
 
+                                </form>
                             </tr>
+
                         @endforeach
                     </tbody>
                 </table>
 
                 <script type="text/javascript">
                     //custom max min header filter
-
                     var table = new Tabulator("#example-table", {
 
                         height:"311px",
                         layout:"fitColumns",
-                        pagination: "local",
-
-
 
                         columns:[
                             {title:"Id", field:"id", width:50, headerFilter:"input"},
@@ -67,12 +65,11 @@
                             {title:"Prefecture", field:"prefecture",width:100, headerFilter:"select"},
                             {title:"Address", field:"street_address", width:150, headerFilter:"input"},
                             {title:"Updated At", field:"updated_at", width:90, hozAlign:"center", sorter:"date",  headerFilter:"input"},
+                            {title: "Action",formatter: "editBTN",cellClick: "editCB" ,headerSort: false ,formatter: "<button type='submit'>Delete</button>"}
 
-                        ]
+                            ]
 
                     });
-
-
                 </script>
             </div>
         </div>
