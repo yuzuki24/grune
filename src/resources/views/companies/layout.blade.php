@@ -16,7 +16,9 @@
 
         <!-- Bootstrap 3.3.7 -->
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css') }}">
+
+
         <!-- Font Awesome -->
 
         <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
@@ -58,7 +60,6 @@
         <!-- backend css -->
         <link rel="stylesheet" href="{{ asset('css/backend/backend.css') }}">
         @yield('companies_edit')
-        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     </head>
     <body class="hold-transition skin-blue-light sidebar-mini @yield('body-class')">
         <div class="wrapper">
