@@ -3,7 +3,7 @@
 @section('content')
 
 
-<h1>Companies</h1>
+<h1>Company List Page</h1>
 
     <div style="display:flex; justify-content:center;">
         <div style="width:1080px;">
