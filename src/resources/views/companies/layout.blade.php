@@ -18,7 +18,10 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!-- Font Awesome -->
+
         <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
+
+
         <!-- Ionicons -->
         <link rel="stylesheet" href="{{ asset('bower_components/Ionicons/css/ionicons.min.css') }}">
         <!-- jvectormap -->
@@ -49,11 +52,13 @@
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <!-- Favicon Link
         <link rel="icon" type="image/png" href="">
+
         -->
         @yield('css-scripts')
         <!-- backend css -->
         <link rel="stylesheet" href="{{ asset('css/backend/backend.css') }}">
         @yield('companies_edit')
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     </head>
     <body class="hold-transition skin-blue-light sidebar-mini @yield('body-class')">
         <div class="wrapper">

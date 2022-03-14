@@ -35,7 +35,7 @@
                                 <td style="padding: 5px;">{{ $company->postcode }}</td>
                                 <td style="padding: 5px;">{{ $prefectures[$company->prefecture_id] }}</td>
                                 <td style="padding: 5px;">{{ $company->city.$company->local.$company->street_address }}</td>
-                                <td style="padding: 5px;">{{ $company->updated_at->format('Y/m/d') }}</td>
+                                <td style="padding: 5px;">{{ $company->updated_at->format('d/m/Y H:i:s') }}</td>
                                 <td style="padding: 5px;">
                                     <div class="side-by-side">
                                         <button class=“clmItem”><a href="{{ route('companies.edit', $company->id) }}">Edit</a></button>

@@ -4,6 +4,11 @@
 
 <div class="container small">
     <h2>Company Edit</h2>
+    <div class="back">
+        <a href="{{ route('companies.index') }}" class="btn btn-outline-secondary" role="button">
+            <i class="fa fa-reply mr-1" aria-hidden="true"></i>{{ __('Back') }}
+        </a>
+    </div>
     <div>
         <form action='{{ route("companies.store", $company_id )}}' method='post'>
             @csrf
@@ -20,10 +25,10 @@
                   <div class="form-group">
                       <label for="companies_postcode">{{ __('Postcode') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
                       <input type="text" class="form-control" value="{{$company->postcode}}" name='postcode' v-model="postcode" id="companies_postcode">
-                      <button type="button" @click="onClick">Search</button>
+                      <button type="button" class="btn btn-primary btn-lg" @click="onClick">Search</button>
                   </div>
                   <div class="form-group">
-                    <label for="companies_postcode">{{ __('Prefecture') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span>
+                    <label for="companies_postcode">{{ __('Prefecture') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
                     {{ Form::select('prefecture', $prefectures, 5, ['v-model' => 'prefecture_id','name' => 'prefecture_id']) }}
 
                       {{-- {{ Form::select('prefecture', $prefectures->toArray(),  ['selected' => '5'], ['v-model' => 'prefecture_id', 'name'=>'prefecture_id']) }} --}}
@@ -79,10 +84,7 @@
                       @endif --}}
                   </form>
               </div>
-              <div style="display: flex; justify-content: space-between;">
-                  <a href="{{ route('companies.index') }}" class="btn btn-outline-secondary" role="button">
-                      <i class="fa fa-reply mr-1" aria-hidden="true"></i>{{ __('企業一覧へ戻る') }}
-                  </a>
+              <div class="sub">
                   <button type="submit" class="btn btn-success">
                       {{ __('Submit') }}
                   </button>
