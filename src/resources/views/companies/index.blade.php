@@ -37,13 +37,15 @@
                                 <td style="padding: 5px;">{{ $company->city.$company->local.$company->street_address }}</td>
                                 <td style="padding: 5px;">{{ $company->updated_at->format('Y/m/d') }}</td>
                                 <td style="padding: 5px;">
-                                    <a href="{{ route('companies.edit', $company->id) }}">Edit</a>
-                                    <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type='submit'>Delete</button>
-                                    </form>
+                                    <div class="side-by-side">
+                                        <button class=“clmItem”><a href="{{ route('companies.edit', $company->id) }}">Edit</a></button>
 
+                                        <form class=“clmItem” action="{{ route('companies.destroy', $company->id) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type='submit'>Delete</button>
+                                        </form>
+                                    </div>
                                 </td>
 
 
@@ -65,14 +67,16 @@
                             {title:"Id", field:"id", width:50, headerFilter:"input"},
                             {title:"Name", field:"name", width:100, headerFilter:"input", sorter:"string"},
                             {title:"Email", field: "email", width:150, headerFilter:"input"},
-                            {title:"Postcode", field:"postcode", width:100, headerFilter:"input"},
-                            {title:"Prefecture", field:"prefecture",width:100, headerFilter:"select"},
-                            {title:"Address", field:"street_address", width:150, headerFilter:"input"},
-                            {title:"Updated At", field:"updated_at", width:90, hozAlign:"center", sorter:"date",  headerFilter:"input"},
-                            {title: "Action", field:"action", formatter:"html"},
+                            {title:"Postcode", field:"postcode", width:140, headerFilter:"input"},
+                            {title:"Prefecture", field:"prefecture",width:140, headerFilter:"select"},
+                            {title:"Address", field:"street_address", width:190, headerFilter:"input"},
+                            {title:"Updated At", field:"updated_at", width:180, hozAlign:"center", sorter:"date",  headerFilter:"input"},
+                            {title: "Action", field:"action", width:130,formatter:"html" },
+
                             ]
 
                     });
+
                 </script>
 
             </div>
