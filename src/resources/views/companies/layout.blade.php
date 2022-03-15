@@ -163,6 +163,7 @@
 
 
         <!-- jQuery 3 -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('bower_components/jquery-cookie/jquery.cookie.min.js') }}"></script>
         <!-- Bootstrap 3.3.7 -->

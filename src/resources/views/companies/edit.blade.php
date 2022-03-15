@@ -77,7 +77,7 @@
 
                   <form action={{route('first')}} method="POST" enctype="multipart/form-data">
 
-                    <img id="img_prv" src="{{ asset('/public/img/no-image/no-image.jpg') }}">
+                    <img id="img_prv" src="{{ asset('img/no-image/no-image.jpg') }}">
 
                     <input id="img_upload" type="file" accept="image/*" name="image">
                   </form>
