@@ -71,14 +71,15 @@
         </div>
         <div class="form-group">
             <label for="companies_image">{{ __('Image') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
-            <form action="{{ route('first') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="file" name="image" id="companies_image">
-                {{-- @if($user->image == null)
-                <img src="/src/public/img/no-image/no-image.jpg">
-                @else
-                <img src="/storage/{{$user->image}}">
-                @endif --}}
+
+                <form action={{route('first')}} method="POST" enctype="multipart/form-data">
+
+                    <img id="img_prv" src="{{ asset('/public/img/no-image/no-image.jpg') }}">
+
+                    <input id="img_upload" type="file" accept="image/*" name="image">
+               </form>
+
+
             </form>
         </div>
         <div class="sub">
@@ -89,6 +90,23 @@
     </fieldset>
     </form>
 </div>
+<script>
+
+    $('#img_upload').on('change', function (ev) {
+
+
+        console.log("image is changed");
+
+        const reader = new FileReader();
+
+        const fileName = ev.target.files[0].name;
+
+        reader.onload = function (ev) {
+            $('#img_prv').attr('src', ev.target.result).css('width', '150px').css('height', '150px');
+        }
+        reader.readAsDataURL(this.files[0]);
+    })
+</script>
 
 
 
