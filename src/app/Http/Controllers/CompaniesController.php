@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Companies;
-use App\Models\Base\Prefecture;
+//use App\Controllers\Companies;
+use App\Post;
+use App\Base\Prefecture;
 use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
@@ -109,3 +110,4 @@ class CompaniesController extends Controller
 
 
 }
+?>

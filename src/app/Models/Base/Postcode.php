@@ -11,7 +11,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Postcode
- *
+ * 
  * @property int $id
  * @property string $public_body_code
  * @property string $old_postcode
@@ -43,8 +43,4 @@ class Postcode extends Eloquent
 		'indicator_5' => 'bool',
 		'indicator_6' => 'bool'
 	];
-    // Scope
-    public function scopeWhereSearch($query, $postcode) {
-        $query->where('postcode', intval($postcode));
-    }
 }

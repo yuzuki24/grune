@@ -1,42 +1,73 @@
 <?php
-use App\Http\Controllers\CompaniesController;
-use App\Http\Controllers\Backend\PostalCodeController;
-use Illuminate\Support\Facades\Route;
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-//Route::get('/', [CompaniesController::class, 'index']);
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register web routes for your application. These
+  | routes are loaded by the RouteServiceProvider within a group which
+  | contains the "web" middleware group. Now create something great!
+  |
+ */
 
+/*
+  |--------------------------------------------------------------------------
+  | Frontend Routes
+  |--------------------------------------------------------------------------
+ */
 
+// By default laravel is using routes from Auth::routes() created from php artisan make:auth
+// Auth::routes()
+//
+// However in our application we need to create the routes manually
+// Default login routes from Auth::routes()
+Route::GET('/', 'Auth\LoginController@showLoginForm')->name('login');
+Route::GET('admin/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::POST('admin/login', 'Auth\LoginController@login')->name('login');
+// This prevents user from accessing logout via url
+Route::GET('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/', function () {
-    return view('welcome');
+// No need registration for this project
+
+// No need forgot password for this project
+
+/*
+  |--------------------------------------------------------------------------
+  | Backend Routes
+  |--------------------------------------------------------------------------
+ */
+
+// Admin backend routes - accessible after successful login
+Route::GROUP(['middleware' => ['auth:user']], function() {
+
+    // Logout
+    Route::POST('logout', 'Auth\LoginController@logout')->name('logout');
+
+    // Admin (handles users account)
+    Route::GET('/admin', 'Backend\UserController@index')->name('admin');
+    Route::GET('/admin/add', 'Backend\UserController@add')->name('admin.add');
+    Route::POST('/admin/create', 'Backend\UserController@create')->name('admin.create');
+    Route::GET('/admin/edit/{id}', 'Backend\UserController@edit')->name('admin.edit');
+    Route::POST('/admin/update', 'Backend\UserController@update')->name('admin.update');
+    //Route::GET('/admin/delete', 'Backend\UserController@delete')->name('admin.delete');
+
+    Route::GET('/companies', 'CompaniesController@index')->name('companies.index');
+    Route::GET('/companies/create', 'CompaniesController@create')->name('companies.create');
+    Route::GET('/companies/layout', 'CompaniesController@layout')->name('companies.layout');
+
+    Route::POST('/companies/store', 'CompaniesController@store')->name('companies.store');
+
+    Route::GET('/companies/edit/{company_id}', 'CompaniesController@edit')->name('companies.edit');
+    Route::POST('/companies/edit/{company_id}', 'CompaniesController@update')->name('companies.update');
+    Route::GET('/companies/destroy/{company_id}', 'CompaniesController@destroy')->name('companies.destroy');
+
+    //住所自動入力//
+    Route::GET('postal_code', 'HomeController@postal_code');
+    Route::GET('/Backend/postal_search', 'PostalCodeController@search')->name('postalcode.search');
+
+    //画像//
+    Route::GET('imgs/first', 'ImgsController@first')->name('first');
+    //Route::GET('imgs', 'ImgsController', ['only' => ['create', 'store', 'destroy']]);
+
 });
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/companies', [CompaniesController::class, 'index'])->name('companies.index');
-Route::get('/companies/create', [CompaniesController::class, 'create'])->name('companies.create');
-Route::get('/companies/layout', [CompaniesController::class, 'layout'])->name('companies.layout');
-
-Route::post('/companies/store', [CompaniesController::class, 'store'])->name('companies.store');
-
-Route::get('/companies/edit/{company_id}', [CompaniesController::class, 'edit'])->name('companies.edit');
-Route::post('/companies/edit/{company_id}', [CompaniesController::class, 'update'])->name('companies.update');
-Route::delete('/companies/destroy/{company_id}', [CompaniesController::class, 'destroy'])->name('companies.destroy');
-
-//住所自動入力//
-Route::get('postal_code', 'HomeController@postal_code');
-Route::get('/Backend/postal_search', [PostalCodeController::class, 'search'])->name('postalcode.search');
-
-//画像//
-Route::get('imgs/first', 'ImgsController@first')->name('first');
-Route::resource('imgs', 'ImgsController', ['only' => ['create', 'store', 'destroy']]);

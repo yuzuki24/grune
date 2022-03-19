@@ -8,6 +8,17 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 class Kernel extends ConsoleKernel
 {
     /**
+     * The Artisan commands provided by your application.
+     *
+     * @var array
+     */
+    protected $commands = [
+        // Add the command classes to be used in cron job here
+        // \App\Console\Commands\SendReservedCoupon::class,
+        // \App\Console\Commands\SendCouponBasedOnTriggerDistribution::class,
+    ];
+
+    /**
      * Define the application's command schedule.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
@@ -15,7 +26,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // // run SendReservedCoupon every 1 hour
+        // $schedule->command('message:send-reserved-coupon')
+        //      ->hourly();
+        //
+        // // run SendCouponBasedOnTriggerDistribution every 1 hour
+        // $schedule->command('trigger-distribution:send-event-coupon')
+        //      ->hourly();
     }
 
     /**

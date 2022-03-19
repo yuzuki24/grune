@@ -2,43 +2,41 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\UserResetPasswordNotification;
+use Config;
 
-class User extends Authenticatable
-{
-    use HasApiTokens, HasFactory, Notifiable;
+class User extends \App\Models\Base\User implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+    // Always remember to put necessary traits inside class after defining them below namespace
+    // These traits are used by default for user login authentication
+    use Authenticatable,
+        Authorizable,
+        CanResetPassword,
+        Notifiable;
+
+	protected $hidden = [
+		'password',
+		'remember_token'
+	];
+
+	protected $fillable = [
+		'username',
+		'password',
+		'remember_token',
+		'display_name'
+	];
+
+	/**
+     * Override the default function to send password reset notification
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function sendPasswordResetNotification($token) {
+        $this->notify(new UserResetPasswordNotification($token));
+    }
 }
