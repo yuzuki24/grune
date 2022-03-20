@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-//use App\Controllers\Companies;
+use App\Models\companies;
 use App\Post;
-use App\Base\Prefecture;
+use App\Models\Prefecture;
 use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
 {
     public function __construct()
     {
-        $this->companies = new Companies();
+        $this->companies = new companies();
         $this->prefecture = new Prefecture();
     }
 
@@ -20,7 +20,7 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        $companies = $this->companies->findAllCompaniess();
+        $companies = Companies::all();
         $prefectures_collection = $this->prefecture->select('id', 'display_name')->get();
         $prefectures = $prefectures_collection->mapWithkeys(function ($prefecture) {
             return [$prefecture['id'] => $prefecture['display_name']];

@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -15,8 +14,32 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        postcode: '',
+        prefecture_id: '',
+        city: '',
+        local: '',
+    },
+    methods: {
+        onClick: function() {
+            console.log('クリックしました')
+            const url = '/Backend/postal_search?' + [
+                'postcode=' + this.postcode,
+
+            ].join('&');
+            console.log(url)
+            axios.get(url).then((response) => {
+
+                this.prefecture_id = response.data.prefecture_id;
+                this.city = response.data.city;
+                this.local = response.data.local;
+
+            });
+
+        }
+    }
 });

@@ -55,31 +55,40 @@
                     </tbody>
                 </table>
 
-                <script type="text/javascript">
-                    //custom max min header filter
-                    var table = new Tabulator("#example-table", {
 
-                        height:"311px",
-                        layout:"fitColumns",
-
-
-                        columns:[
-                            {title:"Id", field:"id", width:50, headerFilter:"input"},
-                            {title:"Name", field:"name", width:100, headerFilter:"input", sorter:"string"},
-                            {title:"Email", field: "email", width:150, headerFilter:"input"},
-                            {title:"Postcode", field:"postcode", width:140, headerFilter:"input"},
-                            {title:"Prefecture", field:"prefecture",width:140, headerFilter:"select"},
-                            {title:"Address", field:"street_address", width:190, headerFilter:"input"},
-                            {title:"Updated At", field:"updated_at", width:180, hozAlign:"center", sorter:"date",  headerFilter:"input"},
-                            {title: "Action", field:"action", width:130,formatter:"html" },
-
-                            ]
-
-                    });
-
-                </script>
 
             </div>
         </div>
     </div>
 @endsection
+@section('js-scripts')
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.1.6/dist/js/tabulator.min.js"></script>
+<script type="text/javascript">
+    //custom max min header filter
+    var table = new Tabulator("#example-table", {
+
+        height:"311px",
+        layout:"fitColumns",
+
+
+        columns:[
+            {title:"Id", field:"id", width:50, headerFilter:"input"},
+            {title:"Name", field:"name", width:100, headerFilter:"input", sorter:"string"},
+            {title:"Email", field: "email", width:150, headerFilter:"input"},
+            {title:"Postcode", field:"postcode", width:140, headerFilter:"input"},
+            {title:"Prefecture", field:"prefecture",width:140, headerFilter:"select"},
+            {title:"Address", field:"street_address", width:190, headerFilter:"input"},
+            {title:"Updated At", field:"updated_at", width:180, hozAlign:"center", sorter:"date",  headerFilter:"input"},
+            {title: "Action", field:"action", width:130,formatter:"html" },
+
+            ]
+
+    });
+
+</script>
+{{--<script type="text/javascript" src="dist/js/tabulator.min.js"></script> --}}
+@endsection
+@section('css-scripts')
+<link href="https://unpkg.com/tabulator-tables@5.1.6/dist/css/tabulator.min.css" rel="stylesheet">
+@endsection
+

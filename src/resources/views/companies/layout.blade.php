@@ -44,10 +44,10 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!--tabulater-->
-        <link href="https://unpkg.com/tabulator-tables@5.1.6/dist/css/tabulator.min.css" rel="stylesheet">
+        <!--<link href="https://unpkg.com/tabulator-tables@5.1.6/dist/css/tabulator.min.css" rel="stylesheet">
         <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.1.6/dist/js/tabulator.min.js"></script>
         <link href="dist/css/tabulator.min.css" rel="stylesheet">
-        <script type="text/javascript" src="dist/js/tabulator.min.js"></script>
+        <script type="text/javascript" src="dist/js/tabulator.min.js"></script> -->
 
         <!-- Google Font -->
         <link rel="stylesheet"
