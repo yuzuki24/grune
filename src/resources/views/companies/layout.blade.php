@@ -6,7 +6,8 @@
         <title>@yield('title')</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {{--<link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!--jquery -->
         <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -14,7 +15,7 @@
         crossorigin="anonymous"></script>
         <!--bootstrap-->
         <!-- Bootstrap 3.3.7 -->
-        <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
         <!-- Ionicons -->
@@ -41,6 +42,8 @@
         <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.1.6/dist/js/tabulator.min.js"></script>
         <link href="dist/css/tabulator.min.css" rel="stylesheet">
         <script type="text/javascript" src="dist/js/tabulator.min.js"></script> -->
+
+        <script src="{{ asset('https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js') }}"></script>
 
         <!-- Google Font -->
         <link rel="stylesheet"
@@ -156,11 +159,11 @@
 
 
         <!-- jQuery 3 -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('bower_components/jquery-cookie/jquery.cookie.min.js') }}"></script>
         <!-- Bootstrap 3.3.7 -->
-        <script src="/assets/libs/angular-ui-bootstrap/ui-bootstrap-tpls-1.3.0.min.js" type="text/javascript"></script>
+        <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <!--<script src="/assets/libs/angular-ui-bootstrap/ui-bootstrap-tpls-1.3.0.min.js" type="text/javascript"></script>-->
         <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <!-- FastClick -->
         <script src="{{ asset('bower_components/fastclick/lib/fastclick.js') }}"></script>
@@ -170,7 +173,7 @@
         <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
         <!-- ChartJS -->
         <script src="{{ asset('bower_components/chart.js/Chart.js') }}"></script>
-
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <script src="{{ asset('js/backend/backend.js') }}"></script>
         <script type="text/javascript"> var rootUrl = "{{ url('/') }}";</script>

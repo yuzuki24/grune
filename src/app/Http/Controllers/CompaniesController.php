@@ -110,4 +110,3 @@ class CompaniesController extends Controller
 
 
 }
-?>
