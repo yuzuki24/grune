@@ -41,7 +41,7 @@
                                         <button class=“clmItem”><a href="{{ route('companies.edit', $company->id) }}">Edit</a></button>
 
                                         <form class=“clmItem” action="{{ route('companies.destroy', $company->id) }}" method="POST">
-                                            @csrf
+                                            {{--@csrf--}}
                                             @method('delete')
                                             <button type='submit'>Delete</button>
                                         </form>

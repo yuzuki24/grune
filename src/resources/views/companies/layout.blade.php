@@ -13,17 +13,10 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous"></script>
         <!--bootstrap-->
-
         <!-- Bootstrap 3.3.7 -->
-
         <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css') }}">
-
-
         <!-- Font Awesome -->
-
         <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
-
-
         <!-- Ionicons -->
         <link rel="stylesheet" href="{{ asset('bower_components/Ionicons/css/ionicons.min.css') }}">
         <!-- jvectormap -->
@@ -125,8 +118,8 @@
                                 <span>Users</span>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="edit-users"><a href=""><i class="fa fa-circle-o"></i> Add / Edit</a></li>
-                                <li class="list-users"><a href=""><i class="fa fa-circle-o"></i> List</a></li>
+                                <li class="edit-users"><a href="{{ route('admin.add') }}"><i class="fa fa-circle-o"></i> Add / Edit</a></li>
+                                <li class="list-users"><a href="{{ route('admin') }}"><i class="fa fa-circle-o"></i> List</a></li>
                             </ul>
                         </li>
 

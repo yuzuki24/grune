@@ -50,7 +50,7 @@ Route::GROUP(['middleware' => ['auth:user']], function() {
     Route::POST('/admin/create', 'Backend\UserController@create')->name('admin.create');
     Route::GET('/admin/edit/{id}', 'Backend\UserController@edit')->name('admin.edit');
     Route::POST('/admin/update', 'Backend\UserController@update')->name('admin.update');
-    //Route::GET('/admin/delete', 'Backend\UserController@delete')->name('admin.delete');
+    Route::GET('/admin/delete', 'Backend\UserController@delete')->name('admin.delete');
 
     Route::GET('/companies', 'CompaniesController@index')->name('companies.index');
     Route::GET('/companies/create', 'CompaniesController@create')->name('companies.create');
@@ -60,7 +60,7 @@ Route::GROUP(['middleware' => ['auth:user']], function() {
 
     Route::GET('/companies/edit/{company_id}', 'CompaniesController@edit')->name('companies.edit');
     Route::POST('/companies/edit/{company_id}', 'CompaniesController@update')->name('companies.update');
-    Route::GET('/companies/destroy/{company_id}', 'CompaniesController@destroy')->name('companies.destroy');
+    Route::delete('/companies/destroy/{company_id}', 'CompaniesController@destroy')->name('companies.destroy');
 
     //住所自動入力//
     Route::GET('postal_code', 'HomeController@postal_code');
