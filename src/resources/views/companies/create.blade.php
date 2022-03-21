@@ -10,7 +10,7 @@
         </a>
     </div>
     <form action="{{ route('companies.store') }}" method="POST">
-    @csrf
+    {{--@csrf--}}
       <fieldset>
           <div class="form-group">
               <label for="companies_name">{{ __('Name') }}<span class="badge bg-danger ml-2">{{ __('Required') }}</span></label>
