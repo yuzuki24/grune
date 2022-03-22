@@ -44,6 +44,10 @@ form tr th {
     text-decoration: none;
 }
 
+label {
+    font-weight: normal;
+}
+
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
@@ -7686,8 +7690,8 @@ button.close {
     border: 1px solid #fff;
     border-radius: 10px;
     cursor: pointer;
-    /*background-color: #000\9;*/
-    /*background-color: transparent*/
+    /*background-color: #000\9;
+    background-color: transparent*/
 }
 
 .carousel-indicators .active {
