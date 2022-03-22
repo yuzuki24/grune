@@ -40,6 +40,7 @@
                 <input type="text" class="form-control" name="local" v-model="local" id="companies_local">
             </div>
         </div>
+
         <div class="form-group">
             <label for="companies_street_address">{{ __('StreetAddress') }}<span class="badge badge-danger ml-2"></span></label>
             <input type="text" class="form-control" name="street_address" id="companies_street_address">
@@ -90,6 +91,9 @@
     </fieldset>
     </form>
 </div>
+<script src="{{ asset('https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js') }}"></script>
+
+
 <script>
 
     $('#img_upload').on('change', function (ev) {

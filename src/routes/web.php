@@ -64,7 +64,7 @@ Route::GROUP(['middleware' => ['auth:user']], function() {
 
     //住所自動入力//
     Route::GET('postal_code', 'HomeController@postal_code');
-    Route::GET('/Backend/postal_search', 'PostalCodeController@search')->name('postalcode.search');
+    Route::GET('/Backend/postal_search', 'Backend\PostalCodeController@search')->name('postalcode.search');
 
     //画像//
     Route::GET('imgs/first', 'ImgsController@first')->name('first');

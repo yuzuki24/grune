@@ -36,7 +36,6 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!--tabulater-->
         <!--<link href="https://unpkg.com/tabulator-tables@5.1.6/dist/css/tabulator.min.css" rel="stylesheet">
@@ -45,7 +44,7 @@
         <script type="text/javascript" src="dist/js/tabulator.min.js"></script> -->
 
         <script src="{{ asset('https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js') }}"></script>
-
+        <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js') }}"></script>
         <!-- Google Font -->
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -175,6 +174,7 @@
         <!-- ChartJS -->
         <script src="{{ asset('bower_components/chart.js/Chart.js') }}"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/post.js') }}" ></script>
 
         <script src="{{ asset('js/backend/backend.js') }}"></script>
         <script type="text/javascript"> var rootUrl = "{{ url('/') }}";</script>
