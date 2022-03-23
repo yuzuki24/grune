@@ -13,32 +13,50 @@
     {{--@csrf--}}
       <fieldset>
           <div class="form-group">
-              <label for="companies_name">{{ __('Name') }}<span class="label label-danger label-required">Required</span></label>
-              <input type="text" class="form-control" name="name" id="companies_name">
+            <label for="companies_name">{{ __('Name') }}<span class="label label-danger label-required">Required</span></label>
+            <input type="text" class="form-control" name="name" id="companies_name"><br>
+            @if($errors->has('name'))
+            <div class="error-txt">{{ $errors->first('name') }}</div>
+            @endif
           </div>
           <div class="form-group">
             <label for="companies_email">{{ __('Email') }}<span class="label label-danger label-required">Required</span></label>
             <input type="text" class="form-control" name="email" id="companies_email">
-
-        </div>
+            @if($errors->has('email'))
+            <div class="error-txt">{{ $errors->first('email') }}</div>
+            @endif
+          </div>
         <div id="app">
             <div class="form-group">
                 <label for="companies_postcode">{{ __('Postcode') }}<span class="label label-danger label-required">Required</span></label>
                 <input type="text" class="form-control" name='postcode' v-model="postcode" id="companies_postcode" width="50px">
                 <button type="button" class="btn btn-primary btn-lg" @click="onClick">Search</button>
+                @if($errors->has('postcode'))
+                <div class="error-txt">{{ $errors->first('postcode') }}</div>
+                @endif
             </div>
             <div class="form-group">
                 <label for="companies_postcode">{{ __('Prefecture') }}<span class="label label-danger label-required">Required</span></label>
                 {{ Form::select('prefecture', $prefectures, null, ['v-model' => 'prefecture_id', 'name'=>'prefecture_id']) }}
+                @if($errors->has('prefecture'))
+                <div class="error-txt">{{ $errors->first('prefecture') }}</div>
+                @endif
+
 
             </div>
             <div class="form-group">
                 <label for="companies_city">{{ __('City') }}<span class="label label-danger label-required">Required</span></label>
                 <input type="text" class="form-control" name="city" v-model="city" id="companies_city">
+                @if($errors->has('city'))
+                <div class="error-txt">{{ $errors->first('city') }}</div>
+                @endif
             </div>
             <div class="form-group">
                 <label for="companies_local">{{ __('Local') }}<span class="label label-danger label-required">Required</span></label>
                 <input type="text" class="form-control" name="local" v-model="local" id="companies_local">
+                @if($errors->has('local'))
+                <div class="error-txt">{{ $errors->first('local') }}</div>
+                @endif
             </div>
         </div>
 
@@ -81,6 +99,10 @@
                     <input id="img_upload" type="file" accept="image/*" name="image">
                </form>
 
+               @if($errors->has('image'))
+               <div class="error-txt">{{ $errors->first('image') }}</div>
+               @endif
+
 
 
         </div>
@@ -92,6 +114,7 @@
     </fieldset>
     </form>
 </div>
+
 <script src="{{ asset('https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js') }}"></script>
 
 
