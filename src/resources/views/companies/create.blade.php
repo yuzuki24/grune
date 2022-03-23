@@ -19,6 +19,7 @@
           <div class="form-group">
             <label for="companies_email">{{ __('Email') }}<span class="label label-danger label-required">Required</span></label>
             <input type="text" class="form-control" name="email" id="companies_email">
+
         </div>
         <div id="app">
             <div class="form-group">

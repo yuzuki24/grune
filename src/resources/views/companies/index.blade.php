@@ -67,8 +67,26 @@
     //custom max min header filter
     var table = new Tabulator("#example-table", {
 
-        height:"311px",
         layout:"fitColumns",
+        placeholder: "There is not Data",
+        responsiveLayout: false,
+        resizableColumns: true,
+        pagination: "local",
+        paginationSize: 20,
+        langs:{
+            "ja-jp":{
+                "pagination":{
+                    "first":"<<",
+                    "first_title":"First Page",
+                    "last":">>",
+                    "last_title":"Last Page",
+                    "prev":"<",
+                    "prev_title":"Prev Page",
+                    "next":">",
+                    "next_title":"Next Page",
+                },
+            },
+        },
 
 
         columns:[

@@ -6,6 +6,7 @@ use App\Models\companies;
 use App\Post;
 use App\Models\Prefecture;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateCompanyRequest;
 
 class CompaniesController extends Controller
 {
@@ -45,7 +46,7 @@ class CompaniesController extends Controller
     /**
      * 登録処理
      */
-    public function store(Request $request)
+    public function store(CreateCompanyRequest $request)
     {
         $registerCompanies = $this->companies->InsertCompanies($request);
         return redirect()->route('companies.index');
@@ -66,6 +67,7 @@ class CompaniesController extends Controller
         $img->save();
 
         return redirect()->route('admin.members');
+
     }
 
     public function first()
@@ -106,6 +108,7 @@ class CompaniesController extends Controller
         Companies::destroy($company_id);
         return redirect('/companies');
     }
+
 
 
 

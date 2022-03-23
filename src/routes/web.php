@@ -70,4 +70,6 @@ Route::GROUP(['middleware' => ['auth:user']], function() {
     Route::GET('imgs/first', 'ImgsController@first')->name('first');
     Route::resource('imgs', 'ImgsController', ['only' => ['create', 'store', 'destroy']]);
 
+
+
 });
