@@ -125,9 +125,9 @@
 
         console.log("image is changed");
 
-        const reader = new FileReader();
+        var reader = new FileReader();
 
-        const fileName = ev.target.files[0].name;
+        var fileName = ev.target.files[0].name;
 
         reader.onload = function (ev) {
             $('#img_prv').attr('src', ev.target.result).css('width', '150px').css('height', '150px');

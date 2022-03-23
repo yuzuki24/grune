@@ -6,6 +6,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+.error-txt {
+    color: #c7254e;
+}
+
 .sub {
     text-align: center;
 }

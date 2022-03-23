@@ -62,7 +62,6 @@ class CompaniesController extends Controller
         } else {
             $fileName = "";
         }
-
         $img->image = $fileName;
         $img->save();
 
